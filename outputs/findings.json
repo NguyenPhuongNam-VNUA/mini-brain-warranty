@@ -1,0 +1,57 @@
+[
+  {
+    "type": "duplicate_claim",
+    "scope": {
+      "dealer": "DL13"
+    },
+    "metric": "n_duplicate_claims",
+    "expected": 0,
+    "actual": 80,
+    "evidence": "80 claim trùng, tổng 69,325 USD bị trả thừa. Ví dụ: C017876, C011738, C000807_D"
+  },
+  {
+    "type": "invalid_value",
+    "scope": {
+      "column": "odometer_km"
+    },
+    "metric": "n_rows_odometer_negative",
+    "expected": 0,
+    "actual": 30,
+    "evidence": "30 dòng có odometer < 0. Ví dụ: C016488, C018340, C011081"
+  },
+  {
+    "type": "cost_anomaly",
+    "scope": {
+      "dealer": "DL07",
+      "part": "brake"
+    },
+    "metric": "mean_cost_usd",
+    "expected": 203.9,
+    "actual": 511.4,
+    "evidence": "Chi phí TB sửa brake ở DL07 = 511$, gấp 2.5 lần median các đại lý khác (204$), dựa trên 292 claim. z=116.5"
+  },
+  {
+    "type": "volume_spike",
+    "scope": {
+      "part": "inverter",
+      "supplier": "SUP_E",
+      "month": "2025-06"
+    },
+    "metric": "n_claims",
+    "expected": 91,
+    "actual": 399,
+    "evidence": "inverter/SUP_E tháng 2025-06: 399 claim, gấp 4.4 lần mức thường (91). z=26.0. Nguyên nhân: tập trung ở lot=LOT06 (100% phần tăng); rải đều theo dealer (lớn nhất DL16 chỉ 10%)"
+  },
+  {
+    "type": "volume_spike",
+    "scope": {
+      "part": "inverter",
+      "supplier": "SUP_E",
+      "month": "2025-07"
+    },
+    "metric": "n_claims",
+    "expected": 91,
+    "actual": 363,
+    "evidence": "inverter/SUP_E tháng 2025-07: 363 claim, gấp 4.0 lần mức thường (91). z=22.9. Nguyên nhân: tập trung ở lot=LOT07 (100% phần tăng); rải đều theo dealer (lớn nhất DL09 chỉ 9%)"
+  }
+]
